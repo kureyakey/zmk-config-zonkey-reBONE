@@ -1,4 +1,4 @@
-#include "soa44.dtsi"
+#include "zonkey.dtsi"
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
