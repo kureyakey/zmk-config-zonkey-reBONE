@@ -20,7 +20,7 @@ manifest:
       remote: badjeff
       revision: main
     - name: zmk-rgbled-widget
-      remote: caksoylar
-      revision: main
+  remote: caksoylar
+  revision: main
   self:
     path: config
