@@ -3,9 +3,10 @@
 #include <dt-bindings/input/input-event-codes.h>
 #include <input/processors.dtsi>
 
-&default_transform {
-    col-offset = <6>;
-};
+/* * ❌ 古い &default_transform { col-offset = <6>; }; は削除しました。
+ * 左右のキーの識別は、zonkey.dtsi側の physical-layout (keys) の順序、
+ * もしくは各キーマップ側の割り当てで行います。
+ */
 
 / {
     kscan0: kscan0 {
@@ -62,6 +63,7 @@
     pinctrl-1 = <&spi0_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio0 9 GPIO_ACTIVE_LOW>;
+    
     trackball: trackball@0 {
         status = "okay";
         compatible = "pixart,pmw3610-alt";
