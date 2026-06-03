@@ -9,6 +9,12 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &default_layout;
+        /* Explicitly disable display for right side (peripheral) */
+        zephyr,display = &no_display;
+    };
+
+    no_display: no-display {
+        compatible = "zmk,no-display";
     };
 
     kscan0: kscan0 {
