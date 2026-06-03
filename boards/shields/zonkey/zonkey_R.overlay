@@ -28,16 +28,17 @@
         #address-cells = <1>;
         #size-cells = <0>;
 
-        trackball_listener: trackball_listener {
+        trackball_split: trackball_split@0 {
+            compatible = "zmk,input-split";
+            reg = <0>;
+        };
+    };
+
+    trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
         device = <&trackball>;
     };
-};
-
-&default_transform {
-    col-offset = <6>;
-};
 
     encoder_3: encoder_3 {
         compatible = "alps,ec11";
@@ -52,6 +53,10 @@
         sensors = <&encoder_3>;
         triggers-per-rotation = <20>;
     };
+};
+
+&default_transform {
+    col-offset = <6>;
 };
 
 &spi1 {
