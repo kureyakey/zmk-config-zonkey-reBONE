@@ -47,8 +47,10 @@
         sensors = <&encoder_1 &encoder_2>;
         triggers-per-rotation = <20>;
     };
+};
 
-// I2C設定 (OLED用)
+/* --- ルートノード外の追記・設定 --- */
+
 &pinctrl {
     i2c1_default: i2c1_default {
         group1 {
@@ -90,4 +92,4 @@
 };
 
 &xiao_serial { status = "disabled"; };
-&uart0 { status = "disabled";};
+&uart0 { status = "disabled"; };
