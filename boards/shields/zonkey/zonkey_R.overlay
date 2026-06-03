@@ -117,3 +117,8 @@
 
 &xiao_serial { status = "disabled"; };
 &uart0 { status = "disabled"; };
+
+/* Disable SPI0 (not used on right side, only SPI1) */
+&spi0 {
+    status = "disabled";
+};
