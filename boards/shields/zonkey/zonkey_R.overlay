@@ -13,8 +13,6 @@
 
     kscan0: kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
-        // interrupt-gpios の定義がエラーの原因の可能性があるため、
-        // ボード定義に合わせて正確なラベル(&gpio0等)を指定してください
         interrupt-gpios = <&gpio0 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
         gpios
             =  <&gpio0 15 GPIO_ACTIVE_LOW>
@@ -57,7 +55,6 @@
     };
 };
 
-// 以下、外部参照 (&...) はルートの外側に記述します
 &default_transform {
     col-offset = <6>;
 };
@@ -76,9 +73,7 @@
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
+        // バインディングエラーを避けるため、ドライバ定義外のプロパティを削除しました
     };
 };
 
@@ -89,7 +84,6 @@
 &trackball_listener {
     status = "okay";
     input-processors = <&zip_temp_layer 1 400>;
-
     scroll {
         layers = <2>;
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 16>, <&zip_xy_to_scroll_mapper>;
@@ -104,7 +98,6 @@
                 <NRF_PSEL(SPIM_MISO, 0, 4)>;
         };
     };
-
     spi1_sleep: spi1_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 5)>,
