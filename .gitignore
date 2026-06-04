@@ -1,6 +1,7 @@
 modules/
 optional/
-zephyr/
+zephyr/*
+!zephyr/module.yml
 zmk/
 zmk-*/
 build*/
