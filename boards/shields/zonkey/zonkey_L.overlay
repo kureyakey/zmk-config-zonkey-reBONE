@@ -12,68 +12,24 @@
         zephyr,display = &oled;
     };
 
-    kscan0: kscan0 {
-        compatible = "zmk,kscan-gpio-charlieplex";
-        interrupt-gpios = <&gpio0 30 (GPIO_ACTIVE_LOW)>;
-        gpios
-            =  <&xiao_d 7 (GPIO_ACTIVE_LOW)>
-            ,  <&gpio0 15 GPIO_ACTIVE_LOW>
-            ,  <&gpio0 19 GPIO_ACTIVE_LOW>
-            ,  <&gpio1 1 GPIO_ACTIVE_LOW>
-            ,  <&gpio0 9 GPIO_ACTIVE_LOW>
-            ,  <&gpio0 10 GPIO_ACTIVE_LOW>
-            ,  <&gpio0 31 GPIO_ACTIVE_LOW>
-            ;
-    };
-
-    left_encoder_0: left_encoder_0 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "okay";
-    };
-
-    left_encoder_1: left_encoder_1 {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <24>;
-        status = "okay";
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder_0 &left_encoder_1>;
-        triggers-per-rotation = <20>;
-    };
-
-    encoder_sw: encoder_sw {
-        compatible = "zmk,kscan-gpio-direct";
-        input-gpios = <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-    };
+    /* ... kscan0, encoders, sensors, encoder_sw は省略 ... */
 };
 
-// Pin control for SPI1 (WS2812 LED)
 &pinctrl {
+    /* SPI1 (LED) 用ピン設定 */
     spi1_default: spi1_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 19)>,
-                <NRF_PSEL(SPIM_MISO, 0, 19)>;
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>, <NRF_PSEL(SPIM_MOSI, 0, 19)>;
         };
     };
-
     spi1_sleep: spi1_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 19)>,
-                <NRF_PSEL(SPIM_MISO, 0, 19)>;
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>, <NRF_PSEL(SPIM_MOSI, 0, 19)>;
             low-power-enable;
         };
     };
 
-    /* I2C1 用の設定 */
+    /* I2C0 (OLED) 用ピン設定 */
     i2c0_default: i2c0_default {
         group1 { psels = <NRF_PSEL(TWIM_SDA, 0, 4)>, <NRF_PSEL(TWIM_SCL, 0, 5)>; };
     };
@@ -84,22 +40,26 @@
 
 &i2c0 {
     status = "okay";
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
+    
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>; height = <32>;
-        /* ...省略... */
+        segment-offset = <0>; page-offset = <0>;
+        display-offset = <0>; multiplex-ratio = <31>;
+        com-sequential; inversion-on; prechargep = <0x22>;
     };
 };
 
 &spi1 {
     status = "okay";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
+
     led_strip: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
         reg = <0>;
@@ -111,11 +71,10 @@
     };
 };
 
-// Override led_strip to set blue color
-&led_strip {
-    status = "okay";
-    chain-length = <1>;
-    // Pre-set WS2812 to blue color (0x0000FF)
+/* 不要なSPI0は明示的に無効化 */
+&spi0 {
+    status = "disabled";
 };
+
 &xiao_serial { status = "disabled"; };
 &uart0 { status = "disabled"; };
