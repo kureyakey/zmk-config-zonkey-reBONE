@@ -18,56 +18,52 @@
         display-name = "default";
         transform = <&default_transform>;
         kscan = <&kscan0>;
-
-        keys = <&key_physical_attrs 100 100   25   0 0 0 0>
-             , <&key_physical_attrs 100 100  125   0 0 0 0>
-             , <&key_physical_attrs 100 100  225   0 0 0 0>
-             , <&key_physical_attrs 100 100  325   0 0 0 0>
-             , <&key_physical_attrs 100 100  425   0 0 0 0>
-             , <&key_physical_attrs 100 100  625   0 0 0 0>
-             , <&key_physical_attrs 100 100  825   0 0 0 0>
-             , <&key_physical_attrs 100 100  925   0 0 0 0>
-             , <&key_physical_attrs 100 100 1025   0 0 0 0>
-             , <&key_physical_attrs 100 100 1125   0 0 0 0>
-             , <&key_physical_attrs 100 100 1225   0 0 0 0>
-
-             , <&key_physical_attrs 100 100   50 100 0 0 0>
-             , <&key_physical_attrs 100 100  150 100 0 0 0>
-             , <&key_physical_attrs 100 100  250 100 0 0 0>
-             , <&key_physical_attrs 100 100  350 100 0 0 0>
-             , <&key_physical_attrs 100 100  450 100 0 0 0>
-             , <&key_physical_attrs 100 100  550 100 0 0 0>
-             , <&key_physical_attrs 100 100  650 100 0 0 0>
-             , <&key_physical_attrs 100 100  800 200 0 0 0>
-             , <&key_physical_attrs 100 100  850 100 0 0 0>
-             , <&key_physical_attrs 100 100  950 100 0 0 0>
+        keys = <&key_physical_attrs 100 100 25 0 0 0 0>
+             , <&key_physical_attrs 100 100 125 0 0 0 0>
+             , <&key_physical_attrs 100 100 225 0 0 0 0>
+             , <&key_physical_attrs 100 100 325 0 0 0 0>
+             , <&key_physical_attrs 100 100 425 0 0 0 0>
+             , <&key_physical_attrs 100 100 625 0 0 0 0>
+             , <&key_physical_attrs 100 100 825 0 0 0 0>
+             , <&key_physical_attrs 100 100 925 0 0 0 0>
+             , <&key_physical_attrs 100 100 1025 0 0 0 0>
+             , <&key_physical_attrs 100 100 1125 0 0 0 0>
+             , <&key_physical_attrs 100 100 1225 0 0 0 0>
+             , <&key_physical_attrs 100 100 50 100 0 0 0>
+             , <&key_physical_attrs 100 100 150 100 0 0 0>
+             , <&key_physical_attrs 100 100 250 100 0 0 0>
+             , <&key_physical_attrs 100 100 350 100 0 0 0>
+             , <&key_physical_attrs 100 100 450 100 0 0 0>
+             , <&key_physical_attrs 100 100 550 100 0 0 0>
+             , <&key_physical_attrs 100 100 650 100 0 0 0>
+             , <&key_physical_attrs 100 100 800 200 0 0 0>
+             , <&key_physical_attrs 100 100 850 100 0 0 0>
+             , <&key_physical_attrs 100 100 950 100 0 0 0>
              , <&key_physical_attrs 100 100 1050 100 0 0 0>
              , <&key_physical_attrs 100 100 1150 100 0 0 0>
              , <&key_physical_attrs 100 100 1250 100 0 0 0>
-
-             , <&key_physical_attrs 100 100    0 200 0 0 0>
-             , <&key_physical_attrs 100 100  100 200 0 0 0>
-             , <&key_physical_attrs 100 100  200 200 0 0 0>
-             , <&key_physical_attrs 100 100  300 200 0 0 0>
-             , <&key_physical_attrs 100 100  400 200 0 0 0>
-             , <&key_physical_attrs 100 100  500 200 0 0 0>
-             , <&key_physical_attrs 100 100  650 200 0 0 0>
-             , <&key_physical_attrs 100 100  750 100 0 0 0>
-             , <&key_physical_attrs 100 100  900 200 0 0 0>
+             , <&key_physical_attrs 100 100 0 200 0 0 0>
+             , <&key_physical_attrs 100 100 100 200 0 0 0>
+             , <&key_physical_attrs 100 100 200 200 0 0 0>
+             , <&key_physical_attrs 100 100 300 200 0 0 0>
+             , <&key_physical_attrs 100 100 400 200 0 0 0>
+             , <&key_physical_attrs 100 100 500 200 0 0 0>
+             , <&key_physical_attrs 100 100 650 200 0 0 0>
+             , <&key_physical_attrs 100 100 750 100 0 0 0>
+             , <&key_physical_attrs 100 100 900 200 0 0 0>
              , <&key_physical_attrs 100 100 1000 200 0 0 0>
              , <&key_physical_attrs 100 100 1100 200 0 0 0>
              , <&key_physical_attrs 100 100 1200 200 0 0 0>
              , <&key_physical_attrs 100 100 1300 200 0 0 0>
-
-             , <&key_physical_attrs 100 100  325 330 0 0 0>
-             , <&key_physical_attrs 100 100  425 330 0 0 0>
-             , <&key_physical_attrs 100 100  525 330 0 0 0>
-             , <&key_physical_attrs 100 100  650 300 0 0 0>
-             , <&key_physical_attrs 100 100  775 330 0 0 0>
-             , <&key_physical_attrs 100 100  900 330 0 0 0>;
+             , <&key_physical_attrs 100 100 325 330 0 0 0>
+             , <&key_physical_attrs 100 100 425 330 0 0 0>
+             , <&key_physical_attrs 100 100 525 330 0 0 0>
+             , <&key_physical_attrs 100 100 650 300 0 0 0>
+             , <&key_physical_attrs 100 100 775 330 0 0 0>
+             , <&key_physical_attrs 100 100 900 330 0 0 0>;
     };
 
-   default_transform: keymap_transform_0 {
+    default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
         columns = <12>;
         rows = <7>;
@@ -79,66 +75,35 @@
         >;
     };
 
- trackball_listener: trackball_listener {
+    trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
     };
 
-
- // LED Power Control for WS2812
     led_power: led_power {
         compatible = "zmk,ext-power-generic";
-        control-gpios = <&gpio0 15 (GPIO_ACTIVE_LOW)>; // P-channel MOSFET control
+        control-gpios = <&gpio0 15 (GPIO_ACTIVE_LOW)>;
         label = "LED Power Control";
         init-delay-ms = <50>;
     };
 
     vbatt: vbatt {
-        // Disable default battery monitoring
         status = "disabled";
     };
-
-
-    &adc {
-      status = "okay";
-    };
-
 
     non_lipo_battery: non_lipo_battery {
         compatible = "zmk,non-lipo-battery";
         io-channels = <&adc 0>;
     };
+}; 
 
-};
-
-&adc {
-    status = "okay";
-};
-
+/* ルートノードの終了後にオーバーライドを配置 */
+&adc { status = "okay"; };
 &spi0 {
     status = "disabled";
-
-    trackball: trackball@0 {
-        status = "disabled";
-        reg = <0>;
-    };
+    trackball: trackball@0 { status = "disabled"; reg = <0>; };
 };
-
-// SPI1 for WS2812 LED control
 &spi1 {
     status = "okay";
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    led_strip: ws2812@0 {
-        compatible = "worldsemi,ws2812-spi";
-        reg = <0>;
-        spi-max-frequency = <4000000>;
-        chain-length = <1>;
-        spi-one-frame = <0x70>;
-        spi-zero-frame = <0x40>;
-        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
-    };
-};
