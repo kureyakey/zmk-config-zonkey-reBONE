@@ -16,6 +16,7 @@
 / {
     chosen {
         zephyr,display = &oled;
+        zmk,kscan = &kscan0;
     };
 
     /* Charlieplex - left side (7 gpios, comma-separated phandle-array) */
@@ -59,15 +60,21 @@
     };
 };
 
+/* nRF52840 conflict note:
+ * SPIM1 and TWIM1 share the same peripheral instance.
+ * SPI1 is used for WS2812 LED (via rgbled_adapter).
+ * OLED must use I2C0 (TWIM0) to avoid conflict.
+ */
 &pinctrl {
-    /* I2C1: SSD1306 OLED  SDA=P0.04(D4)  SCL=P0.05(D5) */
-    i2c1_default: i2c1_default {
+    /* I2C0: SSD1306 OLED  SDA=P0.04(D4)  SCL=P0.05(D5)
+     * TWIM0 is separate from SPIM1, so no conflict with SPI1 LED. */
+    i2c0_default: i2c0_default {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
                     <NRF_PSEL(TWIM_SCL, 0, 5)>;
         };
     };
-    i2c1_sleep: i2c1_sleep {
+    i2c0_sleep: i2c0_sleep {
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 4)>,
                     <NRF_PSEL(TWIM_SCL, 0, 5)>;
@@ -75,7 +82,7 @@
         };
     };
 
-    /* SPI1: WS2812 LED (same custom PCB pins as right side) */
+    /* SPI1: WS2812 LED (custom PCB pins P0.20/P0.19) */
     spi1_default: spi1_default {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK,  0, 20)>,
@@ -91,11 +98,11 @@
     };
 };
 
-&i2c1 {
+&i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twim";
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
     clock-frequency = <I2C_BITRATE_STANDARD>;
 
