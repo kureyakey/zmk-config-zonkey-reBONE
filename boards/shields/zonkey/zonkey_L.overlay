@@ -13,31 +13,24 @@ kscan0: kscan0 {
             ;
     };
 
-// Pin control for SPI1 (WS2812 LED)
-&pinctrl {
-    spi1_default: spi1_default {
+
+&pinctrl {    
+    i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 19)>,
-                <NRF_PSEL(SPIM_MISO, 0, 19)>;
+            psels = <NRF_PSEL(TWIM_SDA, 1, 14)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 15)>;
+            bias-pull-up;
         };
     };
-
-    spi1_sleep: spi1_sleep {
+      
+    i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                <NRF_PSEL(SPIM_MOSI, 0, 19)>,
-                <NRF_PSEL(SPIM_MISO, 0, 19)>;
+            psels = <NRF_PSEL(TWIM_SDA, 1, 14)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 15)>;
             low-power-enable;
+            bias-pull-up;
         };
     };
-};
-
-// Override led_strip to set blue color
-&led_strip {
-    status = "okay";
-    chain-length = <1>;
-    // Pre-set WS2812 to blue color (0x0000FF)
 };
 
 
@@ -64,4 +57,32 @@ kscan0: kscan0 {
         inversion-on;
         prechargep = <0x22>;
     };
+};
+
+
+// Pin control for SPI1 (WS2812 LED)
+&pinctrl {
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 19)>,
+                <NRF_PSEL(SPIM_MISO, 0, 19)>;
+        };
+    };
+
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 19)>,
+                <NRF_PSEL(SPIM_MISO, 0, 19)>;
+            low-power-enable;
+        };
+    };
+};
+
+// Override led_strip to set blue color
+&led_strip {
+    status = "okay";
+    chain-length = <1>;
+    // Pre-set WS2812 to blue color (0x0000FF)
 };
