@@ -1,9 +1,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/led/led.h>
 #include <physical_layouts.dtsi>
 
 / {
     chosen {
         zmk,physical-layout = &default_layout;
+        zmk,matrix_transform = &default_transform;
         zmk,ws2812-widget = &led_strip;
         zmk,battery = &non_lipo_battery;
     };
@@ -17,56 +19,53 @@
         display-name = "default";
         transform = <&default_transform>;
         kscan = <&kscan0>;
-
-        keys = <&key_physical_attrs 100 100   25   0 0 0 0>
-             , <&key_physical_attrs 100 100  125   0 0 0 0>
-             , <&key_physical_attrs 100 100  225   0 0 0 0>
-             , <&key_physical_attrs 100 100  325   0 0 0 0>
-             , <&key_physical_attrs 100 100  425   0 0 0 0>
-             , <&key_physical_attrs 100 100  625   0 0 0 0>
-             , <&key_physical_attrs 100 100  825   0 0 0 0>
-             , <&key_physical_attrs 100 100  925   0 0 0 0>
-             , <&key_physical_attrs 100 100 1025   0 0 0 0>
-             , <&key_physical_attrs 100 100 1125   0 0 0 0>
-             , <&key_physical_attrs 100 100 1225   0 0 0 0>
-
-             , <&key_physical_attrs 100 100   50 100 0 0 0>
-             , <&key_physical_attrs 100 100  150 100 0 0 0>
-             , <&key_physical_attrs 100 100  250 100 0 0 0>
-             , <&key_physical_attrs 100 100  350 100 0 0 0>
-             , <&key_physical_attrs 100 100  450 100 0 0 0>
-             , <&key_physical_attrs 100 100  550 100 0 0 0>
-             , <&key_physical_attrs 100 100  650 100 0 0 0>
-             , <&key_physical_attrs 100 100  800 200 0 0 0>
-             , <&key_physical_attrs 100 100  850 100 0 0 0>
-             , <&key_physical_attrs 100 100  950 100 0 0 0>
+        /* 各要素の区切りと末尾のセミコロンを整理 */
+        keys = <&key_physical_attrs 100 100 25 0 0 0 0>
+             , <&key_physical_attrs 100 100 125 0 0 0 0>
+             , <&key_physical_attrs 100 100 225 0 0 0 0>
+             , <&key_physical_attrs 100 100 325 0 0 0 0>
+             , <&key_physical_attrs 100 100 425 0 0 0 0>
+             , <&key_physical_attrs 100 100 625 0 0 0 0>
+             , <&key_physical_attrs 100 100 825 0 0 0 0>
+             , <&key_physical_attrs 100 100 925 0 0 0 0>
+             , <&key_physical_attrs 100 100 1025 0 0 0 0>
+             , <&key_physical_attrs 100 100 1125 0 0 0 0>
+             , <&key_physical_attrs 100 100 1225 0 0 0 0>
+             , <&key_physical_attrs 100 100 50 100 0 0 0>
+             , <&key_physical_attrs 100 100 150 100 0 0 0>
+             , <&key_physical_attrs 100 100 250 100 0 0 0>
+             , <&key_physical_attrs 100 100 350 100 0 0 0>
+             , <&key_physical_attrs 100 100 450 100 0 0 0>
+             , <&key_physical_attrs 100 100 550 100 0 0 0>
+             , <&key_physical_attrs 100 100 650 100 0 0 0>
+             , <&key_physical_attrs 100 100 800 200 0 0 0>
+             , <&key_physical_attrs 100 100 850 100 0 0 0>
+             , <&key_physical_attrs 100 100 950 100 0 0 0>
              , <&key_physical_attrs 100 100 1050 100 0 0 0>
              , <&key_physical_attrs 100 100 1150 100 0 0 0>
              , <&key_physical_attrs 100 100 1250 100 0 0 0>
-
-             , <&key_physical_attrs 100 100    0 200 0 0 0>
-             , <&key_physical_attrs 100 100  100 200 0 0 0>
-             , <&key_physical_attrs 100 100  200 200 0 0 0>
-             , <&key_physical_attrs 100 100  300 200 0 0 0>
-             , <&key_physical_attrs 100 100  400 200 0 0 0>
-             , <&key_physical_attrs 100 100  500 200 0 0 0>
-             , <&key_physical_attrs 100 100  650 200 0 0 0>
-             , <&key_physical_attrs 100 100  750 100 0 0 0>
-             , <&key_physical_attrs 100 100  900 200 0 0 0>
+             , <&key_physical_attrs 100 100 0 200 0 0 0>
+             , <&key_physical_attrs 100 100 100 200 0 0 0>
+             , <&key_physical_attrs 100 100 200 200 0 0 0>
+             , <&key_physical_attrs 100 100 300 200 0 0 0>
+             , <&key_physical_attrs 100 100 400 200 0 0 0>
+             , <&key_physical_attrs 100 100 500 200 0 0 0>
+             , <&key_physical_attrs 100 100 650 200 0 0 0>
+             , <&key_physical_attrs 100 100 750 100 0 0 0>
+             , <&key_physical_attrs 100 100 900 200 0 0 0>
              , <&key_physical_attrs 100 100 1000 200 0 0 0>
              , <&key_physical_attrs 100 100 1100 200 0 0 0>
              , <&key_physical_attrs 100 100 1200 200 0 0 0>
              , <&key_physical_attrs 100 100 1300 200 0 0 0>
-
-             , <&key_physical_attrs 100 100  325 330 0 0 0>
-             , <&key_physical_attrs 100 100  425 330 0 0 0>
-             , <&key_physical_attrs 100 100  525 330 0 0 0>
-             , <&key_physical_attrs 100 100  650 300 0 0 0>
-             , <&key_physical_attrs 100 100  775 330 0 0 0>
-             , <&key_physical_attrs 100 100  900 330 0 0 0>;
+             , <&key_physical_attrs 100 100 325 330 0 0 0>
+             , <&key_physical_attrs 100 100 425 330 0 0 0>
+             , <&key_physical_attrs 100 100 525 330 0 0 0>
+             , <&key_physical_attrs 100 100 650 300 0 0 0>
+             , <&key_physical_attrs 100 100 775 330 0 0 0>
+             , <&key_physical_attrs 100 100 900 330 0 0 0>;
     };
 
-   default_transform: keymap_transform_0 {
+    default_transform: default_transform {
         compatible = "zmk,matrix-transform";
         columns = <12>;
         rows = <7>;
@@ -78,45 +77,21 @@
         >;
     };
 
- trackball_listener: trackball_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled";
-    };
-
-     // LED Power Control for WS2812
-    led_power: led_power {
-        compatible = "zmk,ext-power-generic";
-        control-gpios = <&gpio0 15 (GPIO_ACTIVE_LOW)>; // P-channel MOSFET control
-        label = "LED Power Control";
-        init-delay-ms = <50>;
-    };
-
-    vbatt: vbatt {
-        // Disable default battery monitoring
-        status = "disabled";
-    };
-
+    vbatt: vbatt { status = "disabled"; };
     non_lipo_battery: non_lipo_battery {
         compatible = "zmk,non-lipo-battery";
         io-channels = <&adc 0>;
     };
 
-};
-
-&adc {
-    status = "okay";
-};
-
-&spi0 {
-    status = "disabled";
-
-    trackball: trackball@0 {
-        status = "disabled";
-        reg = <0>;
+    led_power: led_power {
+        compatible = "zmk,ext-power-generic";
+        control-gpios = <&gpio0 15 (GPIO_ACTIVE_LOW)>;
+        label = "LED Power Control";
+        init-delay-ms = <50>;
     };
 };
 
-// SPI1 for WS2812 LED control
+&adc { status = "okay"; };
 &spi1 {
     status = "okay";
     compatible = "nordic,nrf-spim";
