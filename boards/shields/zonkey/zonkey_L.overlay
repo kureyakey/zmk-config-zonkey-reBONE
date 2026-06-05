@@ -56,7 +56,7 @@
     encoder_sw: encoder_sw {
         compatible = "zmk,kscan-gpio-direct";
         label = "ENCODER_SW";
-        input-gpios = <&xiao_d 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // XiaoのD1ピンに接続した場合
+        input-gpios = <&xiao_d 8 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // XiaoのD1ピンに接続した場合
     };
 };
 
