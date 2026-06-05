@@ -8,7 +8,7 @@ endif
 
 if SHIELD_ZONKEY_L
     config ZMK_KEYBOARD_NAME
-        default "zoneky_L"
+        default "zonkey_L"
 
     config ZMK_SPLIT_ROLE_CENTRAL
         default y
