@@ -55,23 +55,23 @@
   },
   "sensors": [
     {
-      "ref": "encoder_1",
-      "name": "encoder_1",
-      "identifier": "encoder_1",
+      "ref": "left_encoder_0",
+      "name": "left_encoder_0",
+      "identifier": "left_encoder_0",
       "compatible": "alps,ec11",
       "enabled": true
     },
     {
-      "ref": "encoder_2",
-      "name": "encoder_2",
-      "identifier": "encoder_2",
+      "ref": "left_encoder_1",
+      "name": "left_encoder_1",
+      "identifier": "left_encoder_1",
       "compatible": "alps,ec11",
       "enabled": true
     },
     {
-      "ref": "encoder_3",
-      "name": "encoder_3",
-      "identifier": "encoder_3",
+      "ref": "right_encoder_3",
+      "name": "right_encoder_3",
+      "identifier": "right_encoder_3",
       "compatible": "alps,ec11",
       "enabled": true
     }
