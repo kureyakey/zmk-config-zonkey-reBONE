@@ -83,8 +83,3 @@
         wakeup-source;
     };
 };
-
-/* LED Stripの処理 */
-&ws2812 {
-    status = "okay";
-};
