@@ -54,15 +54,32 @@
     };
 };
 
+/* ピン定義のラベル参照をやめ、直接ピンを記述する */
 &spi1 {
     status = "okay";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi1_default_direct>;
+    pinctrl-1 = <&spi1_sleep_direct>;
     pinctrl-names = "default", "sleep";
+    
     led_strip: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
         reg = <0>;
         spi-max-frequency = <4000000>;
         chain-length = <1>;
+    };
+};
+
+&pinctrl {
+    spi1_default_direct: spi1_default_direct {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>, <NRF_PSEL(SPIM_MOSI, 0, 19)>;
+        };
+    };
+    spi1_sleep_direct: spi1_sleep_direct {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>, <NRF_PSEL(SPIM_MOSI, 0, 19)>;
+            low-power-enable;
+        };
     };
 };
