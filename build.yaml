@@ -1,6 +1,6 @@
 include:
   - board: xiao_ble/nrf52840/zmk
-    shield: zonkey_L tom_oled rgbled_adapter
+    shield: zonkey_L rgbled_adapter
   - board: xiao_ble/nrf52840/zmk
     shield: zonkey_R rgbled_adapter
     snippet: studio-rpc-usb-uart
