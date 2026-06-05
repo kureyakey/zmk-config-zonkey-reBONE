@@ -114,6 +114,8 @@
         x-input-code = <0>;
         y-input-code = <1>;
         cpi = <400>;
+        irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW)>; /* 別名 motion-gpios の場合も */
+        motion-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW)>;
         invert-y;
         force-awake;
         wakeup-source;
