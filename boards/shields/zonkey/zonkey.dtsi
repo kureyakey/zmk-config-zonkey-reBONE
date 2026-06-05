@@ -164,5 +164,9 @@ right_encoder_3: right_encoder_3 {
 
 sensors: sensors {
     compatible = "zmk,keymap-sensors";
-    sensors = <&left_encoder_0 &left_encoder_1 &right_encoder_3>;
+    sensors = <
+        &left_encoder_0
+        &left_encoder_1
+        &right_encoder_3
+    >;
 };
