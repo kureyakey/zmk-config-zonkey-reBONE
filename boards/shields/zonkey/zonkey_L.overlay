@@ -95,7 +95,8 @@
 &xiao_serial { status = "disabled"; };
 &uart0 { status = "disabled"; };
 
-&ws2812 {
+
+&led_strip {
     status = "okay";
-    chain-length = <1>;
+    chain-length = <4>; 
 };
