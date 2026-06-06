@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com
     - name: iwk7273
       url-base: https://github.com
+    - name: canandrum
+      url-base: https://github.com  # ← 正しいベースURLでニックネームを再登録しました
     - name: caksoylar
       url-base: https://github.com
 
@@ -30,7 +32,7 @@ manifest:
       revision: main
 
     - name: zmk-tom-oled
-      url: https://github.com
+      remote: canandrum        # ← 不具合を起こす「url:」を廃止し、正規の「remote」に一本化しました
       revision: zephyr-4.1 
 
     - name: zmk-rgbled-widget
