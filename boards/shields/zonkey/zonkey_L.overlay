@@ -10,6 +10,17 @@
         zephyr,display = &oled;
     };
 
+
+  led_strip: ws2812 {
+        compatible = "worldsemi,ws2812-gpio";
+
+
+gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>; 
+        chain-length = <10>; /* LEDの個数。分からなければ10のままでOK */
+        color-mapping = <LED_COLOR_CHANNELS_GRB>;
+    };
+
+
     kscan0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         interrupt-gpios = <&gpio0 30 GPIO_ACTIVE_LOW>;
