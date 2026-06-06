@@ -10,8 +10,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: iwk7273
       url-base: https://github.com/iwk7273
-    - name: pukuhei
-      url-base: https://github.com/pukuhei
+    - name: kureyakey
+      url-base: https://github.com/kureyakey
     - name: caksoylar
       url-base: https://github.com/caksoylar
 
@@ -38,7 +38,7 @@ manifest:
       revision: main
 
     - name: zmk-tom-oled
-      remote: pukuhei
+      remote: kureyakey
       revision: main
 
     - name: zmk-rgbled-widget
