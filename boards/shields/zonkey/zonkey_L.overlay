@@ -4,7 +4,7 @@
     compatible = "zmk,kscan-gpio-charlieplex";
     label = "KSCAN";
     
-    // col-gpios ではなく、必須プロパティである gpios を使用する
+    // row-gpios を削除し、gpios のみ残す
     gpios
         = <&xiao_d 10 GPIO_ACTIVE_HIGH>
         , <&xiao_d 9 GPIO_ACTIVE_HIGH>
