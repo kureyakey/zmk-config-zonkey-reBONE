@@ -8,8 +8,6 @@ manifest:
       url-base: https://github.com/gohanda11
     - name: badjeff
       url-base: https://github.com/badjeff
-    - name: pukuhei
-      url-base: https://github.com/pukuhei  
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -24,8 +22,5 @@ manifest:
     - name: zmk-rgbled-widget
       remote: gohanda11
       revision: fix/xiao-variant-overlays
-    - name: zmk-tom-oled
-      remote: pukuhei
-      revision: main
   self:
     path: config
