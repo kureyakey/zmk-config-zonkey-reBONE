@@ -11,16 +11,11 @@
         ;
 };
 
-/* 存在するラベル名に修正 */
-&left_encoder_0 {
-    status = "okay";
-};
 
 &left_encoder_1 {
     status = "okay";
 };
 
-/* 必要であれば encoder_3 も有効化 */
-// &encoder_3 {
-//     status = "okay";
-// };
+&left_encoder_2 {
+    status = "okay";
+};
