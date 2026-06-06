@@ -79,27 +79,14 @@
         >;
     };
 
-     kscan0: kscan_0 {
+    kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-charlieplex";
         label = "KSCAN";
     };
 
-    left_encoder_1: left_encoder_1 {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
-
-    left_encoder_2: left_encoder_2 {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
-
-    right_encoder_3: right_encoder_3 {
-        compatible = "alps,ec11";
-        status = "disabled";
-    };
-}; 
-
+    left_encoder_1: left_encoder_1 { compatible = "alps,ec11"; status = "disabled"; };
+    left_encoder_2: left_encoder_2 { compatible = "alps,ec11"; status = "disabled"; };
+    right_encoder_3: right_encoder_3 { compatible = "alps,ec11"; status = "disabled"; };
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         status = "disabled";
