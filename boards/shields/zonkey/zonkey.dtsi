@@ -78,13 +78,32 @@
         label = "KSCAN";
     };
 
-    /* エンコーダーやセンサーなどのノードはそのままここに配置 */
+/* Encoder 1: P1.07, P1.05 */
+    left_encoder_0: left_encoder_0 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* P1.07 */
+        b-gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  /* P1.05 */
+        steps = <80>;
+        status = "disabled";
+    };
+
+    /* Encoder 2 / ANO ENCODER: D10, D9 */
     left_encoder_1: left_encoder_1 {
         compatible = "alps,ec11";
-        /* ... */
+        a-gpios = <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
     };
-    /* ... (他のノードもここに記述) ... */
-}; // これでファイル全体を閉じる
+
+   encoder_3: encoder_3 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "disabled";
+    };
+}; 
 
 &adc {
     status = "okay";
