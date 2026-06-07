@@ -102,3 +102,6 @@
     chain-length = <1>;
     // Pre-set WS2812 to blue color (0x0000FF)
 };
+&i2c1 {
+    status = "disabled";
+};
